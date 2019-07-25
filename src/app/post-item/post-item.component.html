@@ -1,0 +1,10 @@
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-success': blogLoveits > 0,
+                'list-group-item-danger': blogLoveits < 0}">
+    <h4>{{ blogTitle }}  <small class="text-muted">{{ blogCreated_At | date: 'dd/MM/yyyy à HH' }}h{{ blogCreated_At | date: 'mm' }}</small></h4>
+    {{ blogContent }}
+    <div>
+        <button class="btn btn-success" (click)="onLove()">Love it!</button> &nbsp;
+        <button class="btn btn-danger" (click)="onDeLove()">Don't love it!</button>
+    </div>
+</li>
