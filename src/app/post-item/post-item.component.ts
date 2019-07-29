@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {PostsService} from '../services/posts.service';
 
 @Component({
   selector: 'app-post-item',
@@ -7,25 +8,28 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class PostItemComponent implements OnInit {
 
-
   @Input() blogTitle: string;
   @Input() blogContent: string;
   @Input() blogLoveits: number;
   @Input() blogCreated_At: Date;
+  @Input() index: number;
 
-  constructor() {
-    this.blogLoveits = 0;
+  constructor(private postService: PostsService) {
     this.blogCreated_At = new Date();
   }
 
   onLove() {
-    this.blogLoveits += 1;
-    console.log(this.blogLoveits );
+    // this.blogLoveits += 1;
+    this.postService.addLove(this.index, 1);
   }
 
   onDeLove() {
-    this.blogLoveits -= 1;
-    console.log(this.blogLoveits );
+    // this.blogLoveits -= 1;
+    this.postService.addLove(this.index, -1);
+  }
+
+  onDeletePost() {
+    this.postService.removePost(this.index);
   }
 
   ngOnInit() {

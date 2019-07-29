@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -8,19 +9,19 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'mon-projet-blog';
 
-  posts = [
-    {
-      title: 'Mon premier post',
-      content: 'Valentiam Arelate oriens excursibus ter vastabantur suo caeli egressus diu Valentiam moturus egressus perferret reges petit suo Valentiam quorum arma.',
-    },
-    {
-      title: 'Mon deuxième post',
-      content: 'Pietate criminis quod esse lacrimae neque ex incredibilisque quidem iuratis declarat lacrimae sentiant iuratis esse parentes declarat est poni et.',
-    },
-    {
-      title: 'Encore un post',
-      content: 'Si theatrales taedium quocumque multas multas aetatem pavimenta aetatem ad pedibus volucriter flexeris cirratas pavimenta feminas ter flexeris quibus spectare.',
-    }
-  ];
+  constructor() {
 
+    var firebaseConfig = {
+      apiKey: "AIzaSyDj4T4YHwqXbE54GIXL_55eoGuddbp5XAg",
+      authDomain: "blog-angular-58b29.firebaseapp.com",
+      databaseURL: "https://blog-angular-58b29.firebaseio.com",
+      projectId: "blog-angular-58b29",
+      storageBucket: "",
+      messagingSenderId: "1047510528151",
+      appId: "1:1047510528151:web:83db156541219a64"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+  }
 }
